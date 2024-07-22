@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}   
+<style>
+body, html {
+    overflow-y: hidden;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="static/style.css">
+<br>
+<p class="index_txt">Вход в систему</p>
+    <form class="index_txt" action="" method="post"  novalidate>
+        {{ form.hidden_tag() }}
+        <p>{{ form.username.label }}</p>
+        <p>{{ form.username(size=7) }}</p>
+            {% for error in form.username.errors %}
+            <p class="red_marker">[{{ error }}]</p>
+            {% endfor %}
+        <p>{{ form.password.label }}</p>
+        <p>{{ form.password(size=7) }}</p>
+            {% for error in form.password.errors %}
+            <p class="red_marker">[{{ error }}]</p>
+            {% endfor %}
+        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+        <br>
+        <p>{{ form.submit() }}</p>
+    </form>
+<div class="index_txt">Нет учетной записи?
+    <p> <a href="{{ url_for('register') }}">Зарегистрироваться</a></p>
+</div>
+{% endblock %}

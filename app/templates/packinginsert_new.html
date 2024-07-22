@@ -1,0 +1,78 @@
+<html>
+	<head>
+		<script>
+			document.addEventListener('DOMContentLoaded', (event) => {
+				const form = document.querySelector('form');
+				form.onsubmit = function() {
+				  const submitButton = this.querySelector('input[type="submit"]');
+				  submitButton.disabled = true;
+				  submitButton.value = "Отправлено";
+				};
+			  });
+			  </script>
+		</head>
+<p>{% block content %}</p>
+<form action="" method="post" novalidate="">{{ form.hidden_tag() }}
+	<link rel="stylesheet" type="text/css" href="static/style.css">
+		<body>
+		<style>
+			.left_column {
+				text-align: center;
+				float: left;
+				width: 70%;
+				font-size: 30px;
+				margin-left: 4px;
+			}
+			.right_column {
+				text-align: right;
+				float: left;
+				width: 20%;
+				font-style: italic;
+				font-size: 30px;
+				margin-right: 5px;
+				margin-top: 50px;
+			}
+
+			.footer {
+				text-align: center;
+				padding: 2px;
+				font-size: 35px;
+				margin-top: 0;
+				margin-bottom: 0;
+				clear:both
+			}
+			p {
+				margin-top: 10;
+				margin-bottom: 10;
+			}
+			br {
+				margin-top: 10;
+				margin-bottom: 10;
+			}
+		</style>
+		<div style="margin-left: 15px; padding-top: 20px;">
+			<p style="text-align: left; "> 1. Выберите изделие: </p>
+			<p style="text-align: center;">{{ form.part }}</p>
+			<p style="text-align: left;"> 2. Выполните внешний осмотр изделия. </p>
+			<p style="text-align: left; width: 100%">Поставьте отметку, если у изделия:</p>
+			</div>
+			<div class="left_column">
+			<p style="text-align: left;">- читаемая маркировка</p>
+			<p style="text-align: left;">- нет заусенцев</p>
+			<p style="text-align: left;">- нет вмятин</p>
+			<p style="text-align: left;">- нет несплошностей</p>
+			</div>
+			<div class="right_column">{{ form.vis_check() }}</div>
+			<div style="clear:both"></div>
+			<hr>
+			<div class="left_column" style="text-align: left;">3. Взвесьте пакет c изделиями и внесите данные в поле справа</div>
+			<div class="right_column">{{ form.weight() }}</div>
+		<div style="clear:both"></div>
+		<hr>
+		<div class="footer" style="clear:both">
+			<p class="button"> {{ form.submit }}</p>
+		</div>
+		</body>
+</form>
+<p>{% endblock %}</p>
+</html>

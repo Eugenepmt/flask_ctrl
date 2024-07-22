@@ -1,0 +1,74 @@
+<html>
+<p>{% block content %}</p>
+<form action="" method="post" novalidate="">{{ form.hidden_tag() }}
+	<p><img class="img_scheme" src="/static/stiftc_scheme.png" alt="Picture" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+	<link rel="stylesheet" type="text/css" href="static/style.css">
+		<body>
+		<style>
+			.left_column {
+				text-align: center;
+				float: left;
+				width: 68%;
+				font-size: 30px;
+				margin-left: 4px;
+			}
+			.right_column {
+				text-align: right;
+				float: left;
+				width: 30%;
+				font-style: italic;
+				font-size: 30px;
+				margin-right: 5px;
+			}
+
+			.footer {
+				text-align: center;
+				padding: 2px;
+				font-size: 35px;
+				margin-top: 0;
+				margin-bottom: 0;
+				clear:both
+			}
+			p {
+				margin-top: 10;
+				margin-bottom: 10;
+			}
+			br {
+				margin-top: 10;
+				margin-bottom: 10;
+			}
+		</style>
+		</style>
+		<div class="left_column">
+			<p style="text-align: left;"> 1. Выберите изделие: </p>
+			<p>{{ form.part }}</p>
+			<p style="text-align: left;"> 2. Проведите визуальный осмотр и поставьте отметку: </p>
+			<br>
+			<div> {{ form.vis_check() }} </div>
+			<br>
+			<p style="text-align: left;"> 3. Измерьте требуемые размеры штангенциркулем и введите их в поля справа</p>
+		</div>
+		<div class="right_column">
+			<br>
+			<p>{{ form.l.label }}:&nbsp;{{ form.l(size=5, class='my_input') }} </p>
+			<p style="font-size: 15px;">{% for error in form.l.errors %}<span style="color: red; text-align: right;;">[{{ error }}]</span>{% endfor %}</p>
+			<p>{{ form.l2.label }}:&nbsp;{{ form.l2(size=5, class='my_input') }} </p>
+			<p style="font-size: 15px;">{% for error in form.l2.errors %} <span style="color: red; text-align: right;"> [{{ error }}] </span> {% endfor %}</p>
+			<p>{{ form.a.label }}:&nbsp;{{ form.a(size=5, class='my_input') }} </p> 
+			<p style="font-size: 15px;">{% for error in form.a.errors %} <span style="color: red; text-align: right;"> [{{ error }}] </span> {% endfor %}</p>
+			<p>{{ form.b.label }}:&nbsp;{{ form.b(size=5, class='my_input') }} </p>
+			<p style="font-size: 15px;">{% for error in form.b.errors %} <span style="color: red; text-align: right;"> [{{ error }}] </span> {% endfor %}</p>
+			<p>{{ form.s.label }}:&nbsp;{{ form.s(size=5, class='my_input') }} </p>
+			<p style="font-size: 15px;">{% for error in form.s.errors %} <span style="color: red; text-align: right;"> [{{ error }}] </span> {% endfor %}</p>
+			<p>{{ form.d.label }}:&nbsp;{{ form.d(size=5, class='my_input') }} </p>
+			<p style="font-size: 15px;">{% for error in form.d.errors %} <span style="color: red; text-align: right;"> [{{ error }}] </span> {% endfor %}</p>
+		</div>
+		<div style="clear:both"></div>
+		<hr>
+		<div class="footer" style="clear:both">
+			<p class="button"> {{ form.submit }}</p>
+		</div>
+		</body>
+</form>
+<p>{% endblock %}</p>
+</html>

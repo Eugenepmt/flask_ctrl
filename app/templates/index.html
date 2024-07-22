@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<p style="text-align: center;">
+    {% extends "base.html" %} 
+<link rel="stylesheet" type="text/css" href="static/style.css">
+
+{% block content %}
+<p class="index_text">Выберите тип изделия и нажмите на него</p>
+<body>
+    <br>
+        <div class="left_column_menu">
+        <button class="href_btn" style="background-color: white; border: 0px;" onclick="window.location.href='/skobainsert?img=CO.png&i=1'"><img class="img_menu" src="\static\CO_menu.png" alt="Скоба SO"></button>
+        <button class="href_btn" style="background-color: white; border: 0px;" onclick="window.location.href='/skobainsert?img=CD.png'"><img class="img_menu" src="\static\CD_menu.png" alt="Скоба SD"></button>
+        <button class="href_btn" style="background-color: white; border: 0px;" onclick="window.location.href='/rezka_choose'"><img class="img_menu" src="\static\rezka_menu.png" alt="Резка"></button>
+    </div>
+    <div class="central_column_menu">
+        <button class="href_btn" style="background-color: white; border: 0px;" onclick="window.location.href='/kchoose'"><img class="img_menu" src="\static\K188_menu.png" alt="К188 Полный"></button>
+        <button class="href_btn" style="background-color: white; border: 0px;" onclick="window.location.href='/sjim_choose'"><img class="img_menu" src="\static\sjim_menu.png" alt="Сжимы"></button>
+        <button class="href_btn" style="background-color: white; border: 0px;" onclick="window.location.href='/stamp_choose'"><img class="img_menu" src="\static\stamp_menu.png" alt="Штамповка"></button>    
+    </div>
+    <div class="right_column_menu">
+        <button class="href_btn" style="background-color: white; border: 0px;" onclick="window.location.href='/mufta_choose'"><img class="img_menu" src="\static\mufta_menu.png" alt="Муфта ТР"></button>
+        <button class="href_btn" style="background-color: white; border: 0px;" onclick="window.location.href='/flag_insert'"><img class="img_menu" src="\static\flag_menu.png" alt="Флажок и ПГС"></button>
+        <button class="href_btn" style="background-color: white; border: 0px;" onclick="window.location.href='/packing_choose'"><img class="img_menu" src="\static\pack_menu.png" alt="Упаковка"></button>
+        </div>
+{% endblock %}
+</body>
+</html>

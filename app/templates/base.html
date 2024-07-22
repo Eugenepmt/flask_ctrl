@@ -1,0 +1,34 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+        {% if title %}
+        <title>{{ title }} - Контроль</title>
+        {% else %}
+        <title>ЗЭТА</title>
+        {% endif %}
+    </head>
+    <body class="base_txt">
+
+        <div>
+            <p><img src="/static/zeta_logo.png" alt="Picture" class="logo_img"></p>
+        </div>
+        <div>
+	    {% if current_user.is_anonymous %}
+            Войдите в учетную запись
+   	    {% else %}
+   	        Учетная запись: {{ current_user.fio }} <a href="{{ url_for('logout') }}">Выйти</a>
+    	    {% endif %}
+        </div>
+        <hr style="margin-top: 5px;">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li class="base_markers">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </body>
+</html>

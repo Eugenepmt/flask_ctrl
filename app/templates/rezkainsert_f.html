@@ -1,0 +1,75 @@
+<html>
+	<head>
+		<script>
+			document.addEventListener('DOMContentLoaded', (event) => {
+				const form = document.querySelector('form');
+				form.onsubmit = function() {
+				  const submitButton = this.querySelector('input[type="submit"]');
+				  submitButton.disabled = true;
+				  submitButton.value = "Отправлено";
+				};
+			  });
+			  </script>
+		</head>
+<p>{% block content %}</p>
+<form action="" method="post" novalidate="">{{ form.hidden_tag() }}
+	<p><img class="img_scheme" src="/static/rezka_scheme.png" alt="Picture" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+	<link rel="stylesheet" type="text/css" href="static/style.css">
+		<body>
+		<style>
+			.left_column {
+				text-align: center;
+				float: left;
+				width: 100%;
+				font-size: 30px;
+				margin-left: 4px;
+			}
+			.right_column {
+				text-align: right;
+				float: left;
+				width: 30%;
+				font-style: italic;
+				font-size: 30px;
+				margin-right: 5px;
+			}
+
+			.footer {
+				text-align: center;
+				padding: 2px;
+				font-size: 35px;
+				margin-top: 0;
+				margin-bottom: 0;
+				clear:both
+			}
+			p {
+				margin-top: 10;
+				margin-bottom: 10;
+			}
+			br {
+				margin-top: 10;
+				margin-bottom: 10;
+			}
+		</style>
+		<div class="left_column">
+			<p style="text-align: left;"> 1. Выберите изделие: </p>
+			<p>{{ form.part }}</p>
+			<p style="text-align: left;"> 2. Замерьте внешний диаметр трубы и выберите подходящий из списка: </p>
+			<p>{{ form.truba }}</p>
+			<p style="text-align: left;"> 3. Проверьте наличие фасок и отсутствие заусенцев. При соответствии поставьте отметку ниже </p>
+			<br>
+			<div> {{ form.vis_check() }}</div>
+			<br>
+			<p style="text-align: left;"> 4. Измерьте длину изделия штангенциркулем и введите в поле ниже:</p>
+			<br>
+			<p>{{ form.l.label }}:&nbsp;{{ form.l(size=5, class='my_input') }} </p>
+			<p style="font-size: 15px;">{% for error in form.l.errors %} <span style="color: red; text-align: right;"> [{{ error }}] </span> {% endfor %}</p>
+		</div>
+		<div style="clear:both"></div>
+		<hr>
+		<div class="footer" style="clear:both">
+			<p class="button"> {{ form.submit }}</p>
+		</div>
+		</body>
+</form>
+<p>{% endblock %}</p>
+</html>

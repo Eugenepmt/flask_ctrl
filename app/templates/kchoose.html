@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	
+		<head>
+			<meta name="viewport" content="width=device-width, initial-scale=0.6">
+		</head>
+<link rel="stylesheet" type="text/css" href="static/style.css">
+{% block content %}
+    <div class="index_text" style="padding-top: 50px;">
+    Выберите вид контроля для К188
+    </div>
+<hr>
+<body>
+        <div class="index_text">
+            <p style="padding-top: 0px; margin-top: 0px; margin-bottom: 5px;">При наладке штампа:</p>
+            <button class="href_btn" onclick="window.location.href='/k_full'">Полный контроль</button>
+            <hr>
+            <p style="padding-top: 0px; margin-top: 0px; margin-bottom: 5px;">При штатном режиме работы:</p>
+            <button class="href_btn" onclick="window.location.href='/k_per'">Периодический контроль</button>
+        </div>
+    </body>
+        {% endblock %}
+
+    </html>

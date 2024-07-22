@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="static/style.css">
+    <p>Регистрация</p>
+    <br>
+    <form class="index_txt" action="" method="post">
+        {{ form.hidden_tag() }}
+        
+        <p>{{ form.username.label }}</p>
+        <p>{{ form.username(size=7) }}</p>
+        <p> {% for error in form.username.errors %}
+            <span class="red_marker">[{{ error }}]</span></p>
+            {% endfor %}
+
+        <p>{{ form.fio.label }}</p>
+        <p>{{ form.fio(size=7) }}</p>
+        <p>{% for error in form.username.errors %}
+            <span class="red_marker">[{{ error }}]</span></p>
+            {% endfor %}
+
+        <p> {{ form.password.label }}</p> 
+        <p> {{ form.password(size=7) }}</p> 
+        <p>  {% for error in form.password.errors %}
+            <span class="red_marker">[{{ error }}]</span></p> 
+            {% endfor %}
+
+        <p>    {{ form.password2.label }}</p> 
+        <p>    {{ form.password2(size=7) }}</p> 
+        <p>    {% for error in form.password2.errors %}
+            <span class="red_marker">[{{ error }}]</span></p> 
+            {% endfor %}
+        <br>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

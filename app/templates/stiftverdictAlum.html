@@ -1,0 +1,65 @@
+<head>
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      const form = document.querySelector('form');
+      form.onsubmit = function() {
+        const submitButton = this.querySelector('input[type="submit"]');
+        submitButton.disabled = true;
+        submitButton.value = "Отправлено";
+      };
+      });
+      </script>
+  </head>
+{% block content %}
+<form action="" method="post" novalidate="">{{form.hidden_tag()}}
+<link rel="stylesheet" type="text/css" href="static/style.css">
+
+    <style>
+        table {
+            font-size: 25px;
+            background: white;
+            max-width: 100%;
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            align-self: center;
+          }
+          th {
+            font-weight: bold;
+            color: #039;
+            border-bottom: 2px solid #6678b1;
+            padding: 10px 8px;
+          }
+          td {
+            border-bottom: 1px solid #ccc;
+            color: #669;
+            padding: 9px 8px;
+            transition: .3s linear;
+          }
+          .footer {
+				    text-align: center;
+				    padding: 10px;
+				    font-size: 35px;
+			    }
+			    p {
+				    margin-top: 10;
+				    margin-bottom: 10;
+			    }
+        </style>
+	<p><img class="img_scheme" src="/static/stifta_scheme.png" alt="Picture" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+  <p style="text-align: center;">Контролируемое изделие:</p>
+  <p style="text-align: center;">{{ form.part }}</p>
+  <table>
+    <tr><th>Параметр</th><th>Значение</th><th>Допуск</th><th>Отметка</th></tr>
+    <tr><td>L</td><td>{{ form.l_ent }}</td><td>{{ form.l_min }} ...&nbsp;{{ form.l_max }}</td><td><img class="verd_img" src="{{ pic_path_1 }}" alt="Picture" style="display: block; margin-left: auto; margin-right: auto;" /></td></tr>
+    <tr><td>a</td><td>{{ form.a_ent }}</td><td>{{ form.a_min }} ...&nbsp;{{ form.a_max }}</td><td><img class="verd_img" src="{{ pic_path_3 }}" alt="Picture" style="display: block; margin-left: auto; margin-right: auto;" /></td></tr>
+    <tr><td>b</td><td>{{ form.b_ent }}</td><td>{{ form.b_min }} ...&nbsp;{{ form.b_max }}</td><td><img class="verd_img" src="{{ pic_path_4 }}" alt="Picture" style="display: block; margin-left: auto; margin-right: auto;" /></td></tr>
+    <tr><td>s</td><td>{{ form.s_ent }}</td><td>{{ form.s_min }} ...&nbsp;{{ form.s_max }}</td><td><img class="verd_img" src="{{ pic_path_5 }}" alt="Picture" style="display: block; margin-left: auto; margin-right: auto;" /></td></tr>
+    <tr><td>d</td><td>{{ form.d_ent }}</td><td>{{ form.d_min }} ...&nbsp;{{ form.d_max }}</td><td><img class="verd_img" src="{{ pic_path_6 }}" alt="Picture" style="display: block; margin-left: auto; margin-right: auto;" /></td></tr>
+    <tr><td>Визуальный контроль</td><td>{{ form.check }}</td><td>Заусенцев нет, фаски присутствуют</td><td><img class="verd_img" src="{{ pic_path_7 }}" alt="Picture" style="display: block; margin-left: auto; margin-right: auto;" /></td></tr>
+</table>
+  <div class="footer"> 
+    <p class="button">{{ form.submit }}</p>
+</div> 
+</form>
+{% endblock %}

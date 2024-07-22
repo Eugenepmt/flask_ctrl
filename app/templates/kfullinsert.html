@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<script>
+		document.addEventListener('DOMContentLoaded', (event) => {
+			const form = document.querySelector('form');
+			form.onsubmit = function() {
+			  const submitButton = this.querySelector('input[type="submit"]');
+			  submitButton.disabled = true;
+			  submitButton.value = "Отправлено";
+			};
+		  });
+		  </script>
+	</head>
+<p>{% block content %}</p>
+<form action="" method="post" novalidate="">{{ form.hidden_tag() }}
+	<p><img class="img_scheme" src="/static/K188.png" alt="Picture" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+	<link rel="stylesheet" type="text/css" href="static/style.css">
+		<body>
+		<style>
+			.left_column {
+				text-align: center;
+				float: left;
+				width: 65%;
+				font-size: 30px;
+				margin-left: 10px;
+			}
+			.right_column {
+				text-align: right;
+				float: left;
+				width: 30%;
+				font-size: 30px;
+			}
+			.footer {
+				text-align: center;
+				padding: 0px;
+				font-size: 45px;
+			}
+			p {
+				margin-top: 10;
+				margin-bottom: 10;
+			}
+			br {
+				margin-top: 10;
+				margin-bottom: 10;
+			}
+		</style>
+		<div class="left_column">
+			<p style="text-align: left;"> 1. Проведите визуальный осмотр и поставьте отметку: </p>
+			<div> {{ form.vis_check() }} </div>
+			<br>
+			<p style="text-align: left;"> 2. Измерьте требуемые размеры штангенциркулем и введите их в соответствующие поля</p>
+			
+		</div>
+		<div class="right_column">
+			<p style="font-size: 30px;">{{ form.c.label }}:&nbsp;{{ form.c(size=3, class='my_input') }} </p>
+			<p style="font-size: 15px;">{% for error in form.c.errors %}<span style="color: red; text-align: right;;">[{{ error }}]</span>{% endfor %}</p>
+			<p style="font-size: 30px;">{{ form.s.label }}:&nbsp;{{ form.s(size=3, class='my_input') }} </p>
+			<p style="font-size: 15px;">{% for error in form.s.errors %} <span style="color: red; text-align: right;"> [{{ error }}] </span> {% endfor %}</p>
+			<p>{{ form.d.label }}:&nbsp;{{ form.d(size=3, class='my_input') }} </p> 
+			<p style="font-size: 15px;">{% for error in form.d.errors %} <span style="color: red; text-align: right;"> [{{ error }}] </span> {% endfor %}</p>
+			<p>{{ form.f.label }}:&nbsp;{{ form.f(size=3, class='my_input') }} </p>
+			<p style="font-size: 15px;">{% for error in form.f.errors %} <span style="color: red; text-align: right;"> [{{ error }}] </span> {% endfor %}</p>
+			<p>{{ form.a.label }}:&nbsp;{{ form.a(size=3, class='my_input') }} </p>
+			<p style="font-size: 15px;">{% for error in form.a.errors %} <span style="color: red; text-align: right;"> [{{ error }}] </span> {% endfor %}</p>
+			<p>{{ form.b.label }}:&nbsp;{{ form.b(size=3, class='my_input') }} </p>
+			<p style="font-size: 15px;">{% for error in form.b.errors %} <span style="color: red; text-align: right;"> [{{ error }}] </span> {% endfor %}</p>
+			<p>{{ form.m.label }}:&nbsp;{{ form.m(size=3, class='my_input') }} </p>
+			<p style="font-size: 15px;">{% for error in form.m.errors %} <span style="color: red; text-align: right;"> [{{ error }}] </span> {% endfor %}</p>
+		</div>
+		<div style="clear:both"></div>
+		<hr>
+		<div class="footer" style="clear:both">
+			<p class="button"> {{ form.submit }}</p>
+		</div>
+		</body>
+</form>
+<p>{% endblock %}</p>
+</html>
