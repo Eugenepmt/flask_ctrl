@@ -1,5 +1,13 @@
 # flask_ctrl
-A flask app for visual and quantitative estimation of specific production//Flask-приложение для визуальной и количественной оценки определенных видов продукции
+A flask app for visual and quantitative estimation of specific production. Written for tablets with 800x1280 resolution.
+Other devices may not display the app correctly.
+
+//
+
+Flask-приложение для визуальной и количественной оценки определенных видов продукции. Написано под планшеты с разрешением 800х1280.
+Остальные устройства могут некорректно отображать приложение.
+
+
 
 Installation:
 1. Download this repository and place it somewhere.
