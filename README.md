@@ -15,6 +15,8 @@ Installation:
 3. Install all dependencies(libraries) to your venv. Use requirements.txt.
 4. Launch the app with "flask run" in terminal. Your virtual environment should be enabled.
 
+!!! The app already includes databases and migration history !!!
+
    //
    
 Установка:
@@ -22,3 +24,5 @@ Installation:
 2. Установите виртуальное окружение. Метод установки может отличаться для разных ОС (Windows или Linux).
 3. Установите все зависимости(библиотеки) в ваше виртуальное окружение. Используйте requirements.txt.
 4. Запустите приложение из терминала командой "flask run". Ваше виртуальное окружение должно быть активировано.
+
+!!! Приложение уже содержит базы данных и историю миграций !!!
